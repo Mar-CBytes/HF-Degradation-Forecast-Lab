@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FadeWatch</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── Top bar ──────────────────────────────────────────────────────── */
+    #topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #1a1d2e;
+      border-bottom: 1px solid #2d3148;
+      padding: 10px 20px;
+      flex-shrink: 0;
+      gap: 12px;
+    }
+    #topbar h1 { font-size: 1.1rem; font-weight: 600; color: #a5b4fc; white-space: nowrap; }
+    #topbar .meta { font-size: 0.75rem; color: #64748b; flex: 1; }
+    #refresh-btn {
+      background: #3b82f6; color: #fff; border: none; border-radius: 6px;
+      padding: 6px 14px; cursor: pointer; font-size: 0.85rem; white-space: nowrap;
+    }
+    #refresh-btn:hover { background: #2563eb; }
+
+    /* ── Solar strip ──────────────────────────────────────────────────── */
+    #solar-strip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #12152a;
+      border-bottom: 1px solid #2d3148;
+      padding: 5px 16px;
+      font-size: 0.72rem;
+      color: #94a3b8;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    #solar-strip .chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: #1e2240; border-radius: 99px; padding: 2px 9px;
+      border: 1px solid #2d3148;
+    }
+    #solar-strip .chip .label { color: #64748b; }
+    #solar-strip .chip .val   { color: #e2e8f0; font-weight: 600; }
+    .storm-quiet   { color: #4ade80 !important; }
+    .storm-g1      { color: #fbbf24 !important; }
+    .storm-g2      { color: #f97316 !important; }
+    .storm-g3plus  { color: #f87171 !important; }
+    .xray-quiet    { color: #4ade80 !important; }
+    .xray-c        { color: #fbbf24 !important; }
+    .xray-mx       { color: #f87171 !important; }
+    #solar-alerts-btn {
+      margin-left: auto; background: transparent; border: 1px solid #3d4266;
+      color: #94a3b8; border-radius: 5px; padding: 2px 8px; cursor: pointer;
+      font-size: 0.72rem;
+    }
+    #solar-alerts-btn:hover { background: #1e2240; }
+
+    /* ── Alerts modal ─────────────────────────────────────────────────── */
+    #alerts-modal {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.65); z-index: 9999;
+      align-items: center; justify-content: center;
+    }
+    #alerts-modal.open { display: flex; }
+    #alerts-box {
+      background: #1a1d2e; border: 1px solid #2d3148; border-radius: 10px;
+      width: min(620px, 92vw); max-height: 70vh;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    #alerts-box header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 18px; border-bottom: 1px solid #2d3148;
+      font-size: 0.9rem; font-weight: 600; color: #a5b4fc;
+    }
+    #alerts-box header button {
+      background: transparent; border: none; color: #64748b;
+      font-size: 1.1rem; cursor: pointer; padding: 0 4px;
+    }
+    #alerts-list {
+      overflow-y: auto; padding: 12px 18px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .alert-item {
+      background: #12152a; border: 1px solid #2d3148; border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .alert-item .alert-summary { font-size: 0.82rem; color: #e2e8f0; margin-bottom: 4px; }
+    .alert-item .alert-meta { font-size: 0.7rem; color: #64748b; }
+    .no-alerts { text-align: center; color: #475569; font-size: 0.85rem; padding: 20px 0; }
+
+    /* ── Main layout ──────────────────────────────────────────────────── */
+    #main { display: flex; flex: 1; overflow: hidden; }
+
+    /* ── Map ──────────────────────────────────────────────────────────── */
+    #map-container { flex: 1; position: relative; }
+    #map { width: 100%; height: 100%; }
+
+    /* ── Side panel ───────────────────────────────────────────────────── */
+    #panel {
+      width: 340px; background: #1a1d2e; border-left: 1px solid #2d3148;
+      display: flex; flex-direction: column; overflow-y: auto; flex-shrink: 0;
+    }
+    #panel-header {
+      padding: 14px 20px 10px; border-bottom: 1px solid #2d3148;
+      font-size: 0.82rem; font-weight: 600; color: #94a3b8;
+      text-transform: uppercase; letter-spacing: .05em;
+    }
+    #panel-content { padding: 14px 18px; flex: 1; }
+    .placeholder { color: #475569; font-size: 0.875rem; text-align: center; margin-top: 40px; }
+
+    /* ── Result card ─────────────────────────────────────────────────── */
+    .result-card {
+      background: #232640; border-radius: 10px;
+      padding: 14px 16px; margin-bottom: 12px;
+    }
+    .result-card h3 {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: .06em;
+      color: #64748b; margin-bottom: 5px;
+    }
+    .result-card .value { font-size: 1rem; font-weight: 600; color: #e2e8f0; }
+    .result-card .sub   { font-size: 0.73rem; color: #94a3b8; margin-top: 2px; }
+
+    /* Risk badge */
+    .risk-badge {
+      display: inline-block; padding: 3px 12px; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    }
+    .risk-low    { background: #14532d; color: #4ade80; }
+    .risk-medium { background: #78350f; color: #fbbf24; }
+    .risk-high   { background: #7f1d1d; color: #f87171; }
+
+    /* Probability bar */
+    .prob-bar-wrap {
+      background: #0f1117; border-radius: 4px; height: 7px; margin-top: 8px; overflow: hidden;
+    }
+    .prob-bar { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+    .bar-low    { background: #4ade80; }
+    .bar-medium { background: #fbbf24; }
+    .bar-high   { background: #f87171; }
+
+    /* Confidence bar */
+    .conf-bar-wrap {
+      background: #0f1117; border-radius: 4px; height: 5px; margin-top: 6px; overflow: hidden;
+    }
+    .conf-bar { height: 100%; border-radius: 4px; background: #6366f1; transition: width 0.5s ease; }
+
+    /* ── Grid selector ───────────────────────────────────────────────── */
+    #grid-selector-wrap { padding: 10px 18px; border-bottom: 1px solid #2d3148; }
+    #grid-selector-wrap label { font-size: 0.73rem; color: #64748b; display: block; margin-bottom: 4px; }
+    #grid-select {
+      width: 100%; background: #232640; color: #e2e8f0;
+      border: 1px solid #3d4266; border-radius: 6px; padding: 5px 10px; font-size: 0.83rem;
+    }
+
+    /* ── Time slider ─────────────────────────────────────────────────── */
+    #time-slider-wrap { padding: 10px 18px; border-bottom: 1px solid #2d3148; }
+    #time-slider-wrap label { font-size: 0.73rem; color: #64748b; display: block; margin-bottom: 4px; }
+    #time-offset-display { font-size: 0.78rem; color: #94a3b8; margin-top: 3px; }
+    input[type="range"] { width: 100%; accent-color: #3b82f6; }
+
+    /* ── Loading spinner ─────────────────────────────────────────────── */
+    #loading {
+      display: none; text-align: center; padding: 30px; color: #64748b; font-size: 0.875rem;
+    }
+    .spinner {
+      display: inline-block; width: 22px; height: 22px;
+      border: 3px solid #2d3148; border-top-color: #3b82f6;
+      border-radius: 50%; animation: spin 0.7s linear infinite; margin-bottom: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Error / notice ──────────────────────────────────────────────── */
+    #error-msg {
+      display: none; background: #450a0a; border: 1px solid #7f1d1d;
+      border-radius: 8px; color: #fca5a5; padding: 10px 14px;
+      font-size: 0.8rem; margin: 10px 18px;
+    }
+    .unavailable-note {
+      background: #1e3a5f; border: 1px solid #1d4ed8; border-radius: 8px;
+      color: #93c5fd; padding: 10px 14px; font-size: 0.8rem; margin-bottom: 12px;
+    }
+
+    /* ── Bottom status bar ───────────────────────────────────────────── */
+    #statusbar {
+      font-size: 0.68rem; color: #475569; text-align: center;
+      padding: 5px; border-top: 1px solid #2d3148; background: #1a1d2e; flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div id="topbar">
+  <h1>📡 FadeWatch</h1>
+  <div class="meta" id="last-update">Click the map or choose a grid square to predict</div>
+  <button id="refresh-btn" onclick="refreshHeatmap()">⟳ Refresh Heatmap</button>
+</div>
+
+<!-- Solar conditions strip -->
+<div id="solar-strip">
+  <span class="chip"><span class="label">Kp</span><span class="val" id="sc-kp">—</span></span>
+  <span class="chip"><span class="label">Trend</span><span class="val" id="sc-trend">—</span></span>
+  <span class="chip"><span class="label">Storm</span><span class="val" id="sc-storm">—</span></span>
+  <span class="chip"><span class="label">SFI</span><span class="val" id="sc-sfi">—</span></span>
+  <span class="chip"><span class="label">X-ray</span><span class="val" id="sc-xray">—</span></span>
+  <button id="solar-alerts-btn" onclick="openAlerts()">Alerts <span id="sc-alert-count">—</span></button>
+</div>
+
+<!-- Main -->
+<div id="main">
+
+  <!-- Map -->
+  <div id="map-container">
+    <div id="map"></div>
+  </div>
+
+  <!-- Side panel -->
+  <div id="panel">
+    <div id="panel-header">Prediction Panel</div>
+
+    <!-- Grid selector -->
+    <div id="grid-selector-wrap">
+      <label for="grid-select">Select a known station:</label>
+      <select id="grid-select" onchange="onGridSelect(this.value)">
+        <option value="">— choose —</option>
+      </select>
+    </div>
+
+    <!-- Time slider -->
+    <div id="time-slider-wrap">
+      <label for="time-slider">Time offset (future look-ahead):</label>
+      <input type="range" id="time-slider" min="0" max="120" step="10" value="0"
+             oninput="onSliderChange(this.value)" />
+      <div id="time-offset-display">Now (+0 min)</div>
+    </div>
+
+    <!-- Error -->
+    <div id="error-msg"></div>
+
+    <!-- Loading -->
+    <div id="loading">
+      <div class="spinner"></div><br>Predicting…
+    </div>
+
+    <!-- Results -->
+    <div id="panel-content">
+      <div class="placeholder">Select a location on the map or from the dropdown above.</div>
+    </div>
+  </div>
+</div>
+
+<!-- NOAA Alerts modal -->
+<div id="alerts-modal" onclick="closeAlerts(event)">
+  <div id="alerts-box">
+    <header>
+      <span>NOAA SWPC Active Alerts</span>
+      <button onclick="closeAlerts()">✕</button>
+    </header>
+    <div id="alerts-list"><div class="no-alerts">Loading…</div></div>
+  </div>
+</div>
+
+<div id="statusbar">
+  Model v1.2 &nbsp;|&nbsp; WSPR data 2024–2026 &nbsp;|&nbsp; <span id="demo-badge" style="display:none;color:#fbbf24">⏱ Demo mode (anchored to dataset end)</span><span id="demo-badge-off">Live</span> &nbsp;|&nbsp; Last refresh: —
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// ── Config ─────────────────────────────────────────────────────────────────
+const API_BASE = "";   // same origin; change to "http://localhost:8000" for dev
+const SOLAR_REFRESH_MS = 5 * 60 * 1000;   // poll /solar_status every 5 min
+
+// ── State ──────────────────────────────────────────────────────────────────
+let selectedLat  = null;
+let selectedLon  = null;
+let selectedGrid = null;
+let timeOffsetMin = 0;
+let heatLayer    = null;
+let stationMarkers = [];
+let selectedMarker = null;
+let alertsData   = [];
+
+// ── Init Map ───────────────────────────────────────────────────────────────
+const map = L.map("map", { center: [20, 0], zoom: 2, zoomControl: true });
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "© OpenStreetMap contributors",
+  maxZoom: 18,
+}).addTo(map);
+
+map.on("click", e => {
+  selectedLat  = e.latlng.lat;
+  selectedLon  = e.latlng.lng;
+  selectedGrid = null;
+  placeMarker(selectedLat, selectedLon);
+  runPrediction();
+});
+
+// ── Place a pin ────────────────────────────────────────────────────────────
+function placeMarker(lat, lon) {
+  if (selectedMarker) map.removeLayer(selectedMarker);
+  selectedMarker = L.circleMarker([lat, lon], {
+    radius: 8, color: "#3b82f6", fillColor: "#93c5fd", fillOpacity: 0.9, weight: 2,
+  }).addTo(map);
+}
+
+// ── Load known stations ────────────────────────────────────────────────────
+async function loadStations() {
+  try {
+    const res  = await fetch(`${API_BASE}/stations`);
+    const data = await res.json();
+    const sel  = document.getElementById("grid-select");
+    data.stations.forEach(s => {
+      const opt = document.createElement("option");
+      opt.value = s.tx_grid;
+      opt.textContent = `${s.tx_grid}  (${s.latitude?.toFixed(2)}, ${s.longitude?.toFixed(2)})`;
+      sel.appendChild(opt);
+      if (s.latitude && s.longitude) {
+        const m = L.circleMarker([s.latitude, s.longitude], {
+          radius: 4, color: "#475569", fillColor: "#64748b", fillOpacity: 0.6, weight: 1,
+        }).addTo(map);
+        m.bindTooltip(s.tx_grid, { permanent: false, direction: "top" });
+        m.on("click", () => {
+          selectedGrid = s.tx_grid;
+          selectedLat  = s.latitude;
+          selectedLon  = s.longitude;
+          placeMarker(s.latitude, s.longitude);
+          document.getElementById("grid-select").value = s.tx_grid;
+          runPrediction();
+        });
+        stationMarkers.push(m);
+      }
+    });
+  } catch (e) {
+    console.warn("Could not load stations:", e);
+  }
+}
+
+// ── Risk overlay — circle markers coloured by outage probability ───────────
+let riskMarkers = [];
+
+function _riskStyle(prob) {
+  if (prob >= 0.66) return { color: "#ef4444", fillColor: "#ef4444", fillOpacity: 0.55, radius: 14 };
+  if (prob >= 0.33) return { color: "#f97316", fillColor: "#f97316", fillOpacity: 0.35, radius: 10 };
+  return null;  // low-risk stations are not drawn
+}
+
+async function refreshHeatmap(isAutoRetry) {
+  const btn = document.getElementById("refresh-btn");
+  btn.textContent = "⟳ Loading…";
+  btn.disabled = true;
+  try {
+    const res = await fetch(`${API_BASE}/heatmap_data`);
+    if (res.status === 503) {
+      const err = await res.json();
+      showHeatmapStatus("⏳ " + (err.detail || "Cache building — please wait…"), "warn");
+      // Auto-retry every 5 s until the cache is ready
+      setTimeout(() => refreshHeatmap(true), 5000);
+      return;
+    }
+    if (!res.ok) throw new Error(`Server error ${res.status}`);
+    const data = await res.json();
+
+    // Remove previous risk markers
+    riskMarkers.forEach(m => map.removeLayer(m));
+    riskMarkers = [];
+
+    // Also remove old heat layer if still present
+    if (heatLayer) { map.removeLayer(heatLayer); heatLayer = null; }
+
+    if (!data.heatmap || data.heatmap.length === 0) {
+      showHeatmapStatus("⚠️ Heatmap returned no data — the server may still be loading. Try again in a moment.", "warn");
+      return;
+    }
+
+    let highCount = 0;
+    data.heatmap
+      .filter(d => d.latitude != null && d.longitude != null)
+      .forEach(d => {
+        const style = _riskStyle(d.probability);
+        if (!style) return;   // skip low-risk (prob < 0.33)
+        if (d.risk_level === "high") highCount++;
+        const m = L.circleMarker([d.latitude, d.longitude], {
+          radius:      style.radius,
+          color:       style.color,
+          weight:      1.5,
+          fillColor:   style.fillColor,
+          fillOpacity: style.fillOpacity,
+        });
+        m.bindTooltip(
+          `<b>${d.grid_square}</b><br>` +
+          `Risk: <b style="color:${style.color}">${d.risk_level.toUpperCase()}</b><br>` +
+          `Probability: ${Math.round(d.probability * 100)}%`,
+          { direction: "top", sticky: false }
+        );
+        m.on("click", () => {
+          selectedGrid = d.grid_square;
+          selectedLat  = d.latitude;
+          selectedLon  = d.longitude;
+          placeMarker(d.latitude, d.longitude);
+          document.getElementById("grid-select").value = d.grid_square;
+          runPrediction();
+        });
+        m.addTo(map);
+        riskMarkers.push(m);
+      });
+
+    const ts = new Date().toLocaleTimeString();
+    const lowRiskCount = data.heatmap.length - riskMarkers.length;
+    document.getElementById("statusbar").innerHTML =
+      `Model v1.2 &nbsp;|&nbsp; WSPR data 2024–2026 &nbsp;|&nbsp; ` +
+      `<span style="color:#fbbf24">⏱ Demo mode (anchored to dataset end)</span> &nbsp;|&nbsp; ` +
+      `${highCount} high-risk &nbsp;·&nbsp; ${riskMarkers.length} at-risk &nbsp;·&nbsp; ` +
+      `${lowRiskCount} low-risk (hidden) &nbsp;|&nbsp; Last refresh: ${ts}`;
+    showHeatmapStatus(null);   // clear any previous warning
+  } catch (e) {
+    console.warn("Heatmap refresh failed:", e);
+    showHeatmapStatus(`⚠️ Heatmap failed to load: ${e.message}`, "error");
+  } finally {
+    btn.textContent = "⟳ Refresh Heatmap";
+    btn.disabled = false;
+  }
+}
+
+// Show a dismissible notice above the map (null = clear)
+let _heatmapNotice = null;
+function showHeatmapStatus(msg, level) {
+  if (_heatmapNotice) { _heatmapNotice.remove(); _heatmapNotice = null; }
+  if (!msg) return;
+  const el = document.createElement("div");
+  el.style.cssText =
+    `position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:1000;` +
+    `padding:8px 18px;border-radius:8px;font-size:0.82rem;cursor:pointer;` +
+    `max-width:min(520px,90vw);text-align:center;` +
+    (level === "error"
+      ? "background:#450a0a;color:#fca5a5;border:1px solid #7f1d1d;"
+      : "background:#422006;color:#fed7aa;border:1px solid #92400e;");
+  el.textContent = msg + "  ✕";
+  el.addEventListener("click", () => { el.remove(); _heatmapNotice = null; });
+  document.getElementById("map-container").appendChild(el);
+  _heatmapNotice = el;
+}
+
+// ── Solar status strip ──────────────────────────────────────────────────────
+async function refreshSolarStatus() {
+  try {
+    const res  = await fetch(`${API_BASE}/solar_status`);
+    const d    = await res.json();
+    alertsData = d.active_alerts || [];
+
+    // Kp
+    const kp = d.kp_index ?? "—";
+    document.getElementById("sc-kp").textContent = typeof kp === "number" ? kp.toFixed(1) : kp;
+
+    // Kp trend (+/-)
+    const trend = d.kp_trend ?? 0;
+    const trendEl = document.getElementById("sc-trend");
+    trendEl.textContent = typeof trend === "number"
+      ? (trend >= 0 ? "+" : "") + trend.toFixed(1)
+      : "—";
+    trendEl.style.color = trend > 1 ? "#f97316" : trend < -1 ? "#4ade80" : "";
+
+    // Storm level
+    const stormEl = document.getElementById("sc-storm");
+    const stormLvl = d.storm_level || "Quiet";
+    stormEl.textContent = stormLvl;
+    stormEl.className = "val " + (
+      stormLvl === "Quiet"         ? "storm-quiet"  :
+      stormLvl.startsWith("G1")    ? "storm-g1"     :
+      stormLvl.startsWith("G2")    ? "storm-g2"     : "storm-g3plus"
+    );
+
+    // SFI
+    const sfi = d.sfi ?? "—";
+    document.getElementById("sc-sfi").textContent = typeof sfi === "number" ? sfi.toFixed(0) : sfi;
+
+    // X-ray class
+    const xrayEl = document.getElementById("sc-xray");
+    const xrayLbl = d.xray_flux_label || "A";
+    xrayEl.textContent = xrayLbl;
+    xrayEl.className = "val " + (
+      xrayLbl === "A" || xrayLbl === "B" ? "xray-quiet" :
+      xrayLbl === "C"                    ? "xray-c"     : "xray-mx"
+    );
+
+    // Alert count badge
+    const cnt = alertsData.length;
+    const alertBtn = document.getElementById("sc-alert-count");
+    alertBtn.textContent = cnt > 0 ? `(${cnt})` : "(0)";
+    alertBtn.style.color = cnt > 0 ? "#f97316" : "#64748b";
+
+  } catch (e) {
+    console.warn("Solar status fetch failed:", e);
+  }
+}
+
+// ── Alerts modal ───────────────────────────────────────────────────────────
+function openAlerts() {
+  const modal = document.getElementById("alerts-modal");
+  const list  = document.getElementById("alerts-list");
+  modal.classList.add("open");
+
+  if (alertsData.length === 0) {
+    list.innerHTML = '<div class="no-alerts">✓ No active NOAA SWPC alerts</div>';
+    return;
+  }
+
+  list.innerHTML = alertsData.map(a => `
+    <div class="alert-item">
+      <div class="alert-summary">${escHtml(a.summary)}</div>
+      <div class="alert-meta">${escHtml(a.product_id || "")} &nbsp;·&nbsp; ${escHtml(a.issue_datetime || "")}</div>
+    </div>
+  `).join("");
+}
+
+function closeAlerts(e) {
+  // Only close when clicking directly on the backdrop, not inside the box
+  if (!e || e.target === document.getElementById("alerts-modal")) {
+    document.getElementById("alerts-modal").classList.remove("open");
+  }
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// ── Grid selector ──────────────────────────────────────────────────────────
+function onGridSelect(grid) {
+  if (!grid) return;
+  selectedGrid = grid;
+  const opt = document.querySelector(`#grid-select option[value="${grid}"]`);
+  if (opt) {
+    const m = opt.textContent.match(/([-\d.]+),\s*([-\d.]+)/);
+    if (m) {
+      selectedLat = parseFloat(m[1]);
+      selectedLon = parseFloat(m[2]);
+      placeMarker(selectedLat, selectedLon);
+      map.setView([selectedLat, selectedLon], 6, { animate: true });
+    }
+  }
+  runPrediction();
+}
+
+// ── Time slider ────────────────────────────────────────────────────────────
+function onSliderChange(val) {
+  timeOffsetMin = parseInt(val);
+  document.getElementById("time-offset-display").textContent =
+    timeOffsetMin === 0 ? "Now (+0 min)" : `+${timeOffsetMin} min from now`;
+  if (selectedGrid || (selectedLat && selectedLon)) runPrediction();
+}
+
+// ── Core prediction call ───────────────────────────────────────────────────
+async function runPrediction() {
+  if (!selectedLat && !selectedGrid) return;
+  showLoading(true);
+  hideError();
+
+  const now     = new Date(Date.now() + timeOffsetMin * 60000);
+  const payload = {
+    latitude:     selectedLat,
+    longitude:    selectedLon,
+    grid_square:  selectedGrid || undefined,
+    current_time: now.toISOString(),
+  };
+
+  try {
+    const res  = await fetch(`${API_BASE}/predict_outage`, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.detail || `HTTP ${res.status}`);
+    }
+    const data = await res.json();
+    renderResult(data);
+    document.getElementById("last-update").textContent =
+      `Last prediction: ${new Date().toLocaleTimeString()}`;
+  } catch (e) {
+    showError(e.message);
+  } finally {
+    showLoading(false);
+  }
+}
+
+// ── Render result ──────────────────────────────────────────────────────────
+function renderResult(d) {
+  const pc  = document.getElementById("panel-content");
+  const pct = Math.round(d.probability * 100);
+  const confPct = Math.round((d.confidence_score || 0) * 100);
+  const riskClass = `risk-${d.risk_level}`;
+  const barClass  = `bar-${d.risk_level}`;
+
+  let outageWindow = "None detected in next 60 min";
+  if (d.next_outage_start) {
+    const s = new Date(d.next_outage_start).toLocaleTimeString();
+    const e = d.next_outage_end ? new Date(d.next_outage_end).toLocaleTimeString() : "?";
+    outageWindow = `${s} – ${e}`;
+  }
+
+  let unavailableHtml = "";
+  if (d.prediction_unavailable) {
+    unavailableHtml = `<div class="unavailable-note">⚠️ ${d.unavailable_reason || "Prediction unavailable"}</div>`;
+  }
+
+  // Confidence colour: green ≥80%, yellow 60–80%, red <60%
+  const confColor = confPct >= 80 ? "#4ade80" : confPct >= 60 ? "#fbbf24" : "#f87171";
+
+  pc.innerHTML = `
+    ${unavailableHtml}
+
+    <div class="result-card">
+      <h3>Location</h3>
+      <div class="value">${d.location.grid_square || "—"}</div>
+      <div class="sub">
+        ${d.location.latitude != null ? d.location.latitude.toFixed(4) : "—"},
+        ${d.location.longitude != null ? d.location.longitude.toFixed(4) : "—"}
+      </div>
+    </div>
+
+    <div class="result-card">
+      <h3>Risk Level</h3>
+      <span class="risk-badge ${riskClass}">${d.risk_level.toUpperCase()}</span>
+    </div>
+
+    <div class="result-card">
+      <h3>Outage Probability</h3>
+      <div class="value">${pct}%</div>
+      <div class="prob-bar-wrap">
+        <div class="prob-bar ${barClass}" style="width:${pct}%"></div>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <h3>Next Expected Outage Window</h3>
+      <div class="value" style="font-size:0.9rem;">${outageWindow}</div>
+    </div>
+
+    <div class="result-card">
+      <h3>Model Confidence</h3>
+      <div class="value" style="color:${confColor}">${confPct}%</div>
+      <div class="conf-bar-wrap">
+        <div class="conf-bar" style="width:${confPct}%; background:${confColor}"></div>
+      </div>
+      <div class="sub" style="margin-top:5px">Tree agreement · Model v${d.model_version}</div>
+    </div>
+  `;
+}
+
+// ── UI helpers ─────────────────────────────────────────────────────────────
+function showLoading(show) {
+  document.getElementById("loading").style.display = show ? "block" : "none";
+  document.getElementById("panel-content").style.opacity = show ? "0.3" : "1";
+}
+function showError(msg) {
+  const el = document.getElementById("error-msg");
+  el.textContent = "Error: " + msg;
+  el.style.display = "block";
+}
+function hideError() { document.getElementById("error-msg").style.display = "none"; }
+
+// ── Boot ───────────────────────────────────────────────────────────────────
+loadStations();
+refreshHeatmap();
+refreshSolarStatus();
+setInterval(refreshSolarStatus, SOLAR_REFRESH_MS);
+</script>
+</body>
+</html>

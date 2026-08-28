@@ -1,0 +1,284 @@
+2026-08-25 18:53:48,531 [INFO] Model loaded from C:\Users\stank\.bob\playground\wspr_outage_predictor\models\rf_outage_model.pkl
+2026-08-25 18:53:48,940 [INFO] Loaded features dataset: (1012285, 28)
+2026-08-25 18:55:26,614 [INFO] Model loaded from C:\Users\stank\.bob\playground\wspr_outage_predictor\models\rf_outage_model.pkl
+2026-08-25 19:04:09,082 [INFO] Loaded features dataset: (1012285, 28)
+2026-08-25 19:04:09,098 [INFO] Loaded features dataset: (1012285, 28)
+2026-08-25 19:04:10,338 [INFO] Model loaded from C:\Users\stank\.bob\playground\wspr_outage_predictor\models\rf_outage_model.pkl
+2026-08-25 19:21:39,868 [INFO] Loaded features dataset: (1012285, 28)
+2026-08-25 19:21:39,869 [INFO] Loaded features dataset: (1012285, 28)
+2026-08-25 19:21:42,147 [INFO] Model loaded from C:\Users\stank\.bob\playground\wspr_outage_predictor\models\rf_outage_model.pkl
+2026-08-26 09:23:38,843 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 09:23:38,860 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 09:23:40,389 [INFO] Model loaded from C:\Users\stank\.bob\playground\wspr_outage_predictor\models\rf_outage_model.pkl
+2026-08-26 09:23:42,245 [WARNING] No recent spots for IO91 at 2026-08-26 13:23:42.053000+00:00
+2026-08-26 09:23:42,259 [WARNING] No recent spots for IO91 at 2026-08-26 13:23:42.055000+00:00
+2026-08-26 11:35:20,968 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 11:35:20,969 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 11:35:23,052 [INFO] Model loaded from C:\Users\stank\.bob\playground\wspr_outage_predictor\models\rf_outage_model.pkl
+2026-08-26 11:35:24,648 [WARNING] No recent spots for FN42 at 2026-08-26 15:35:24.566000+00:00
+2026-08-26 11:35:31,897 [WARNING] No recent spots for QF22 at 2026-08-26 15:35:31.846000+00:00
+2026-08-26 11:35:36,274 [WARNING] No recent spots for QF22 at 2026-08-26 15:35:36.162000+00:00
+2026-08-26 11:35:44,783 [WARNING] No recent spots for QF22 at 2026-08-26 15:45:44.363000+00:00
+2026-08-26 11:35:48,330 [WARNING] No recent spots for QF22 at 2026-08-26 15:35:48.217000+00:00
+2026-08-26 11:35:58,440 [WARNING] No recent spots for JO22 at 2026-08-26 15:35:58.391000+00:00
+2026-08-26 11:36:01,377 [WARNING] No recent spots for JO22 at 2026-08-26 15:36:01.299000+00:00
+2026-08-26 11:36:16,280 [WARNING] No recent spots for PM74 at 2026-08-26 15:36:15.927000+00:00
+2026-08-26 11:36:38,421 [WARNING] No recent spots for JO22 at 2026-08-26 15:36:38.364000+00:00
+2026-08-26 11:36:47,317 [WARNING] No recent spots for FN42 at 2026-08-26 15:36:46.956000+00:00
+2026-08-26 11:36:54,504 [WARNING] No recent spots for QF22 at 2026-08-26 15:36:54.454000+00:00
+2026-08-26 11:45:09,630 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 11:45:09,631 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 11:45:10,928 [INFO] Model loaded from C:\Users\stank\.bob\playground\wspr_outage_predictor\models\rf_outage_model.pkl
+2026-08-26 11:48:38,744 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 11:48:38,869 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 11:48:40,946 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-26 11:50:22,346 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 11:50:22,347 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 11:50:24,147 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-26 11:50:25,131 [WARNING] No recent spots for PM74 at 2026-08-26 15:50:25.004000+00:00
+2026-08-26 11:50:25,138 [WARNING] No recent spots for PM74 at 2026-08-26 15:50:25.004000+00:00
+2026-08-26 11:50:32,250 [WARNING] No recent spots for QF22 at 2026-08-26 15:50:31.830000+00:00
+2026-08-26 11:50:32,258 [WARNING] No recent spots for QF22 at 2026-08-26 15:50:31.831000+00:00
+2026-08-26 11:50:36,542 [WARNING] No recent spots for JO22 at 2026-08-26 15:50:36.423000+00:00
+2026-08-26 11:50:36,553 [WARNING] No recent spots for JO22 at 2026-08-26 15:50:36.424000+00:00
+2026-08-26 11:50:39,357 [WARNING] No recent spots for IO91 at 2026-08-26 15:50:39.238000+00:00
+2026-08-26 11:50:39,365 [WARNING] No recent spots for IO91 at 2026-08-26 15:50:39.238000+00:00
+2026-08-26 11:50:41,040 [WARNING] No recent spots for FN42 at 2026-08-26 15:50:40.914000+00:00
+2026-08-26 11:50:41,048 [WARNING] No recent spots for FN42 at 2026-08-26 15:50:40.914000+00:00
+2026-08-26 11:51:19,681 [WARNING] No recent spots for PM74 at 2026-08-26 15:51:19.627000+00:00
+2026-08-26 12:41:39,732 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 12:41:39,737 [INFO] Loaded features dataset: (1132695, 43)
+2026-08-26 12:41:41,970 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-26 12:41:42,456 [WARNING] No recent spots for PM74 at 2026-08-26 16:41:42.371000+00:00
+2026-08-26 12:41:46,350 [WARNING] No recent spots for FN42 at 2026-08-26 16:41:46.293000+00:00
+2026-08-26 12:41:50,964 [WARNING] No recent spots for QF22 at 2026-08-26 16:41:50.896000+00:00
+2026-08-26 12:41:54,905 [WARNING] No recent spots for IO91 at 2026-08-26 16:41:54.831000+00:00
+2026-08-26 12:41:57,899 [WARNING] No recent spots for JO22 at 2026-08-26 16:41:57.816000+00:00
+2026-08-26 12:42:07,335 [WARNING] No recent spots for JO22 at 2026-08-26 16:52:07.249000+00:00
+2026-08-26 12:42:09,979 [WARNING] No recent spots for JO22 at 2026-08-26 17:32:09.916000+00:00
+2026-08-26 12:42:11,548 [WARNING] No recent spots for JO22 at 2026-08-26 17:42:11.485000+00:00
+2026-08-26 12:42:12,910 [WARNING] No recent spots for JO22 at 2026-08-26 18:12:12.847000+00:00
+2026-08-26 12:42:14,292 [WARNING] No recent spots for JO22 at 2026-08-26 18:22:14.208000+00:00
+2026-08-26 12:42:18,871 [WARNING] No recent spots for JO22 at 2026-08-26 17:52:18.803000+00:00
+2026-08-26 12:42:23,522 [WARNING] No recent spots for JO22 at 2026-08-26 17:02:23.456000+00:00
+2026-08-26 12:42:24,765 [WARNING] No recent spots for JO22 at 2026-08-26 16:52:24.700000+00:00
+2026-08-26 12:42:44,964 [WARNING] No recent spots for JO22 at 2026-08-26 16:52:44.852000+00:00
+2026-08-27 12:32:15,740 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 12:32:16,317 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 12:33:24,588 [INFO] Loaded features dataset: (28692790, 40)
+2026-08-27 12:33:26,167 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-27 12:44:41,082 [INFO] Loaded features dataset: (28692790, 40)
+2026-08-27 12:44:41,079 [INFO] Loaded features dataset: (28692790, 40)
+2026-08-27 12:44:45,168 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-27 12:44:50,471 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 12:44:50,467 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 12:44:51,044 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 12:44:53,897 [INFO] Grid index built: 1844 unique grids
+2026-08-27 12:45:16,425 [WARNING] No recent spots for EN51 at 2026-08-27 16:45:12.898000+00:00
+2026-08-27 12:45:55,098 [WARNING] No recent spots for EN51 at 2026-08-27 16:55:50.874000+00:00
+2026-08-27 12:46:07,375 [WARNING] No recent spots for IO91 at 2026-08-27 16:56:03.146000+00:00
+2026-08-27 12:46:24,208 [WARNING] No recent spots for EM60lq at 2026-08-27 16:56:20.004000+00:00
+2026-08-27 12:46:31,895 [WARNING] No recent spots for JN13rl at 2026-08-27 16:56:28.902000+00:00
+2026-08-27 12:46:39,768 [WARNING] No recent spots for JO65df at 2026-08-27 16:56:35.737000+00:00
+2026-08-27 12:47:36,259 [WARNING] No recent spots for EM74qb at 2026-08-27 16:57:32.628000+00:00
+2026-08-27 12:47:43,869 [WARNING] No recent spots for HP85fp at 2026-08-27 16:57:40.695000+00:00
+2026-08-27 12:48:06,109 [WARNING] No recent spots for HP72 at 2026-08-27 16:58:00.398000+00:00
+2026-08-27 12:53:10,126 [INFO] Loaded features dataset: (28692790, 40)
+2026-08-27 12:53:10,134 [INFO] Loaded features dataset: (28692790, 40)
+2026-08-27 12:53:35,092 [INFO] Grid index built: 1844 unique grids
+2026-08-27 12:53:38,707 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-27 12:53:40,062 [INFO] Dataset end time: 2026-08-27T13:28:00+00:00
+2026-08-27 12:53:40,299 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 12:53:40,420 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 12:53:40,528 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 12:53:58,024 [WARNING] No recent spots for EM60lq at 2026-08-27 13:28:00+00:00
+2026-08-27 12:54:13,011 [WARNING] No recent spots for EM68 at 2026-08-27 13:28:00+00:00
+2026-08-27 12:58:07,187 [INFO] Loaded features dataset: (28692790, 40)
+2026-08-27 12:58:15,011 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-27 12:58:17,688 [INFO] Dataset end time: 2026-08-27T13:28:00+00:00
+2026-08-27 12:58:18,384 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 12:58:25,800 [INFO] Grid index built: 1844 unique grids
+2026-08-27 12:59:06,885 [WARNING] No recent spots for FN14tk at 2026-08-27 13:28:00+00:00
+2026-08-27 12:59:25,127 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 13:00:24,621 [INFO] PREDICT grid=KP12 time=2026-08-27T13:28:00+00:00 prob=0.175 risk=low next_outage=None  kp=1.0  sfi=131
+2026-08-27 13:01:37,311 [INFO] PREDICT grid=EM66 time=2026-08-27T13:28:00+00:00 prob=0.147 risk=low next_outage=None  kp=1.0  sfi=131
+2026-08-27 13:02:21,872 [INFO] PREDICT grid=IO91 time=2026-08-27T13:28:00+00:00 prob=0.041 risk=low next_outage=None  kp=1.0  sfi=131
+2026-08-27 13:03:24,139 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 13:03:25,529 [INFO] PREDICT grid=FN20 time=2026-08-27T13:28:00+00:00 prob=0.227 risk=low next_outage=None  kp=1.0  sfi=131
+2026-08-27 13:03:38,326 [WARNING] No recent spots for JC01 at 2026-08-27 13:28:00+00:00
+2026-08-27 13:03:55,551 [WARNING] No recent spots for FN43tj at 2026-08-27 13:28:00+00:00
+2026-08-27 13:04:07,128 [WARNING] No recent spots for KJ29 at 2026-08-27 13:28:00+00:00
+2026-08-27 13:04:24,283 [WARNING] No recent spots for BH41 at 2026-08-27 13:28:00+00:00
+2026-08-27 13:04:35,638 [WARNING] No recent spots for JN49aq at 2026-08-27 13:28:00+00:00
+2026-08-27 13:04:48,668 [WARNING] No recent spots for KC75 at 2026-08-27 13:28:00+00:00
+2026-08-27 13:08:15,118 [WARNING] No recent spots for JB88 at 2026-08-27 13:28:00+00:00
+2026-08-27 13:08:29,925 [WARNING] No recent spots for JN41 at 2026-08-27 13:28:00+00:00
+2026-08-27 13:09:05,874 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 13:09:05,914 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 13:10:21,322 [WARNING] No recent spots for AO48 at 2026-08-27 13:28:00+00:00
+2026-08-27 13:12:06,414 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 13:12:59,298 [WARNING] No recent spots for EN51 at 2026-08-27 13:28:00+00:00
+2026-08-27 13:15:02,825 [INFO] Loaded features dataset: (28692790, 40)
+2026-08-27 13:15:05,623 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-27 13:15:06,709 [INFO] Dataset end time: 2026-08-27T13:28:00+00:00
+2026-08-27 13:15:07,290 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 13:15:08,626 [INFO] Grid index built: 1844 unique grids
+2026-08-27 13:17:58,622 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 16:18:19,150 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 16:18:30,439 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 16:19:25,501 [INFO] Loaded features dataset: (28692790, 40)
+2026-08-27 16:19:32,129 [INFO] Loaded features dataset: (28692790, 40)
+2026-08-27 16:19:32,880 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-27 16:19:33,125 [INFO] Dataset end time: 2026-08-27T13:28:00+00:00
+2026-08-27 16:19:35,788 [INFO] Grid index built: 1844 unique grids
+2026-08-27 16:19:35,789 [INFO] Grid index built: 1844 unique grids
+2026-08-27 16:28:11,899 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 16:33:10,361 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 16:33:14,273 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 16:43:09,895 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 16:48:03,139 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 16:51:32,731 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 16:51:32,880 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 16:51:33,506 [INFO] PREDICT grid=EN51 time=2026-08-27T13:28:00+00:00 prob=0.124 risk=low next_outage=None  kp=1.0  sfi=131
+2026-08-27 16:51:33,528 [INFO] PREDICT grid=IO91 time=2026-08-27T13:28:00+00:00 prob=0.041 risk=low next_outage=None  kp=1.0  sfi=131
+2026-08-27 16:58:12,394 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 16:58:16,900 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 17:03:19,021 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 17:03:24,262 [INFO] Building per-grid spot cache from parquet (streaming)…
+2026-08-27 17:03:25,411 [INFO]   …processed 5/28 row groups, 547 grids so far
+2026-08-27 17:03:27,123 [INFO] Building per-grid spot cache from parquet (streaming)…
+2026-08-27 17:03:28,129 [INFO]   …processed 5/28 row groups, 547 grids so far
+2026-08-27 17:03:29,215 [INFO]   …processed 10/28 row groups, 1267 grids so far
+2026-08-27 17:03:30,619 [INFO]   …processed 15/28 row groups, 1423 grids so far
+2026-08-27 17:03:32,025 [INFO]   …processed 20/28 row groups, 1556 grids so far
+2026-08-27 17:03:33,511 [INFO]   …processed 25/28 row groups, 1760 grids so far
+2026-08-27 17:03:38,639 [INFO] Spot cache ready: 1844 grids, dataset end=2026-08-27T13:28:00+00:00
+2026-08-27 17:26:25,194 [INFO] Building per-grid spot cache from parquet (streaming)…
+2026-08-27 17:26:25,195 [INFO] Building per-grid spot cache from parquet (streaming)…
+2026-08-27 17:26:27,003 [INFO]   …processed 5/28 row groups, 547 grids so far
+2026-08-27 17:26:27,041 [INFO]   …processed 5/28 row groups, 547 grids so far
+2026-08-27 17:26:28,789 [INFO]   …processed 10/28 row groups, 1267 grids so far
+2026-08-27 17:26:28,823 [INFO]   …processed 10/28 row groups, 1267 grids so far
+2026-08-27 17:26:30,567 [INFO]   …processed 15/28 row groups, 1423 grids so far
+2026-08-27 17:26:30,674 [INFO]   …processed 15/28 row groups, 1423 grids so far
+2026-08-27 17:26:32,596 [INFO]   …processed 20/28 row groups, 1556 grids so far
+2026-08-27 17:26:32,657 [INFO]   …processed 20/28 row groups, 1556 grids so far
+2026-08-27 17:26:34,620 [INFO]   …processed 25/28 row groups, 1760 grids so far
+2026-08-27 17:26:34,653 [INFO]   …processed 25/28 row groups, 1760 grids so far
+2026-08-27 17:26:43,117 [INFO] Spot cache ready: 1844 grids, dataset end=2026-08-27T13:28:00+00:00
+2026-08-27 17:27:08,201 [INFO] Building per-grid spot cache from parquet (streaming)…
+2026-08-27 17:27:08,202 [INFO] Building per-grid spot cache from parquet (streaming)…
+2026-08-27 17:27:09,857 [INFO]   …processed 5/28 row groups, 547 grids so far
+2026-08-27 17:27:09,892 [INFO]   …processed 5/28 row groups, 547 grids so far
+2026-08-27 17:27:11,539 [INFO]   …processed 10/28 row groups, 1267 grids so far
+2026-08-27 17:27:11,570 [INFO]   …processed 10/28 row groups, 1267 grids so far
+2026-08-27 17:27:13,222 [INFO]   …processed 15/28 row groups, 1423 grids so far
+2026-08-27 17:27:13,333 [INFO]   …processed 15/28 row groups, 1423 grids so far
+2026-08-27 17:27:14,826 [INFO]   …processed 20/28 row groups, 1556 grids so far
+2026-08-27 17:27:14,859 [INFO]   …processed 20/28 row groups, 1556 grids so far
+2026-08-27 17:27:16,666 [INFO]   …processed 25/28 row groups, 1760 grids so far
+2026-08-27 17:27:16,701 [INFO]   …processed 25/28 row groups, 1760 grids so far
+2026-08-27 17:27:24,755 [INFO] Spot cache ready: 1844 grids, dataset end=2026-08-27T13:28:00+00:00
+2026-08-27 17:27:25,424 [INFO] Spot cache ready: 1844 grids, dataset end=2026-08-27T13:28:00+00:00
+2026-08-27 17:27:28,063 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-27 17:27:29,376 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 19:28:34,854 [INFO] Building per-grid spot cache from parquet (streaming)…
+2026-08-27 19:28:36,195 [INFO]   …processed 5/28 row groups, 547 grids so far
+2026-08-27 19:28:37,265 [INFO]   …processed 10/28 row groups, 1267 grids so far
+2026-08-27 19:28:38,369 [INFO]   …processed 15/28 row groups, 1423 grids so far
+2026-08-27 19:28:39,757 [INFO]   …processed 20/28 row groups, 1556 grids so far
+2026-08-27 19:28:41,395 [INFO]   …processed 25/28 row groups, 1760 grids so far
+2026-08-27 19:28:43,735 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 19:28:43,823 [INFO] SWPC alerts fetched: 84 entries
+2026-08-27 19:28:46,056 [INFO] Spot cache ready: 1844 grids, dataset end=2026-08-27T13:28:00+00:00
+2026-08-27 19:28:50,089 [INFO] Model loaded from C:\Users\stank\.bob\playground\fadewatch\models\rf_outage_model.pkl
+2026-08-27 19:28:56,949 [INFO] Heatmap computed: 1844 stations
+2026-08-27 19:29:04,229 [INFO] Heatmap computed: 1844 stations
+2026-08-27 19:29:22,320 [INFO] Heatmap computed: 1844 stations
+2026-08-27 19:29:28,200 [INFO] PREDICT grid=JM37 time=2026-08-27T13:28:00+00:00 prob=0.382 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:29:28,205 [INFO] PREDICT grid=JM37 time=2026-08-27T13:28:00+00:00 prob=0.382 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:29:33,160 [INFO] PREDICT grid=BM57 time=2026-08-27T13:28:00+00:00 prob=0.379 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:29:33,171 [INFO] PREDICT grid=BM57 time=2026-08-27T13:28:00+00:00 prob=0.379 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:16,464 [INFO] PREDICT grid=EM60 time=2026-08-27T13:28:00+00:00 prob=0.335 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:16,470 [INFO] Cache hit: EM60|2026-08-27 13:25:00+00:00
+2026-08-27 19:30:20,974 [INFO] PREDICT grid=EM89 time=2026-08-27T13:28:00+00:00 prob=0.337 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:21,000 [INFO] PREDICT grid=EM89 time=2026-08-27T13:28:00+00:00 prob=0.337 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:22,289 [INFO] PREDICT grid=EN67 time=2026-08-27T13:28:00+00:00 prob=0.339 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:22,296 [INFO] PREDICT grid=EN67 time=2026-08-27T13:28:00+00:00 prob=0.339 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:35,975 [INFO] PREDICT grid=CO89 time=2026-08-27T13:28:00+00:00 prob=0.365 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:35,983 [INFO] PREDICT grid=CO89 time=2026-08-27T13:28:00+00:00 prob=0.365 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:48,557 [INFO] Heatmap computed: 1844 stations
+2026-08-27 19:30:50,590 [INFO] PREDICT grid=FN50 time=2026-08-27T13:28:00+00:00 prob=0.336 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:50,595 [INFO] Cache hit: FN50|2026-08-27 13:25:00+00:00
+2026-08-27 19:30:53,114 [INFO] PREDICT grid=FM77 time=2026-08-27T13:28:00+00:00 prob=0.393 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:53,120 [INFO] PREDICT grid=FM77 time=2026-08-27T13:28:00+00:00 prob=0.393 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:55,030 [INFO] PREDICT grid=FM44 time=2026-08-27T13:28:00+00:00 prob=0.342 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:56,840 [INFO] PREDICT grid=DM39 time=2026-08-27T13:28:00+00:00 prob=0.368 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:30:56,844 [INFO] PREDICT grid=DM39 time=2026-08-27T13:28:00+00:00 prob=0.368 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:31:54,374 [INFO] Cache hit: DM39|2026-08-27 13:25:00+00:00
+2026-08-27 19:31:56,132 [INFO] Cache hit: DM39|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:00,521 [INFO] PREDICT grid=FN41qr time=2026-08-27T13:28:00+00:00 prob=0.381 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:00,545 [INFO] PREDICT grid=FN41qr time=2026-08-27T13:28:00+00:00 prob=0.381 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:02,031 [INFO] Cache hit: FN41qr|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:03,391 [INFO] Cache hit: FN41qr|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:05,206 [INFO] Cache hit: FN41qr|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:11,300 [INFO] PREDICT grid=EM50 time=2026-08-27T13:28:00+00:00 prob=0.444 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:11,304 [INFO] PREDICT grid=EM50 time=2026-08-27T13:28:00+00:00 prob=0.444 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:17,501 [INFO] PREDICT grid=EL85 time=2026-08-27T13:28:00+00:00 prob=0.385 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:17,506 [INFO] Cache hit: EL85|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:41,495 [INFO] PREDICT grid=EM20ef time=2026-08-27T13:28:00+00:00 prob=0.367 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:41,500 [INFO] Cache hit: EM20ef|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:45,366 [INFO] Cache hit: EM50|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:45,369 [INFO] Cache hit: EM50|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:48,517 [INFO] PREDICT grid=EM60oj time=2026-08-27T13:28:00+00:00 prob=0.428 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:48,544 [INFO] PREDICT grid=EM60oj time=2026-08-27T13:28:00+00:00 prob=0.428 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:50,076 [INFO] Cache hit: EM60|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:50,078 [INFO] Cache hit: EM60|2026-08-27 13:25:00+00:00
+2026-08-27 19:32:53,899 [INFO] PREDICT grid=EM70hr time=2026-08-27T13:28:00+00:00 prob=0.376 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:53,923 [INFO] PREDICT grid=EM70hr time=2026-08-27T13:28:00+00:00 prob=0.376 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:56,733 [INFO] PREDICT grid=EM55 time=2026-08-27T13:28:00+00:00 prob=0.418 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:56,756 [INFO] PREDICT grid=EM55 time=2026-08-27T13:28:00+00:00 prob=0.418 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:58,916 [INFO] PREDICT grid=EM78ch time=2026-08-27T13:28:00+00:00 prob=0.394 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:58,942 [INFO] PREDICT grid=EM78ch time=2026-08-27T13:28:00+00:00 prob=0.394 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:59,948 [INFO] PREDICT grid=EM68 time=2026-08-27T13:28:00+00:00 prob=0.497 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:32:59,974 [INFO] PREDICT grid=EM68 time=2026-08-27T13:28:00+00:00 prob=0.497 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:33:00,417 [INFO] Cache hit: EM89|2026-08-27 13:25:00+00:00
+2026-08-27 19:33:00,419 [INFO] Cache hit: EM89|2026-08-27 13:25:00+00:00
+2026-08-27 19:34:28,141 [INFO] Cache hit: EM68|2026-08-27 13:25:00+00:00
+2026-08-27 19:34:28,147 [INFO] Cache hit: EM68|2026-08-27 13:25:00+00:00
+2026-08-27 19:37:08,161 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 19:37:14,917 [INFO] Heatmap computed: 1844 stations
+2026-08-27 19:37:25,656 [INFO] Heatmap computed: 1844 stations
+2026-08-27 19:37:31,033 [INFO] PREDICT grid=NN37 time=2026-08-27T13:28:00+00:00 prob=0.331 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:37:31,039 [INFO] Cache hit: NN37|2026-08-27 13:25:00+00:00
+2026-08-27 19:37:34,464 [INFO] PREDICT grid=NM54 time=2026-08-27T13:28:00+00:00 prob=0.383 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:37:34,489 [INFO] PREDICT grid=NM54 time=2026-08-27T13:28:00+00:00 prob=0.383 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:37:36,395 [INFO] PREDICT grid=MM61 time=2026-08-27T13:28:00+00:00 prob=0.368 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:37:36,404 [INFO] PREDICT grid=MM61 time=2026-08-27T13:28:00+00:00 prob=0.368 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:37:47,835 [INFO] PREDICT grid=NO52 time=2026-08-27T13:28:00+00:00 prob=0.379 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:37:47,842 [INFO] PREDICT grid=NO52 time=2026-08-27T13:28:00+00:00 prob=0.379 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:37:48,612 [INFO] PREDICT grid=MO91 time=2026-08-27T13:28:00+00:00 prob=0.408 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:37:48,614 [INFO] PREDICT grid=MO91 time=2026-08-27T13:28:00+00:00 prob=0.408 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:39:21,974 [INFO] PREDICT grid=EN82sx time=2026-08-27T13:28:00+00:00 prob=0.217 risk=low next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:39:24,214 [INFO] PREDICT grid=EN67 time=2026-08-27T13:28:00+00:00 prob=0.339 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:39:27,545 [INFO] PREDICT grid=DN91ww time=2026-08-27T13:28:00+00:00 prob=0.332 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:39:52,467 [INFO] PREDICT grid=EN34jr time=2026-08-27T13:28:00+00:00 prob=0.209 risk=low next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:14,681 [INFO] PREDICT grid=CM97ag time=2026-08-27T13:28:00+00:00 prob=0.338 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:14,701 [INFO] PREDICT grid=CM97ag time=2026-08-27T13:28:00+00:00 prob=0.338 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:17,568 [INFO] PREDICT grid=EM12qx time=2026-08-27T13:28:00+00:00 prob=0.454 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:17,595 [INFO] PREDICT grid=EM12qx time=2026-08-27T13:28:00+00:00 prob=0.454 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:18,408 [INFO] PREDICT grid=EM20ef time=2026-08-27T13:28:00+00:00 prob=0.367 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:19,046 [INFO] Cache hit: EM20ef|2026-08-27 13:25:00+00:00
+2026-08-27 19:40:19,049 [INFO] Cache hit: EM20ef|2026-08-27 13:25:00+00:00
+2026-08-27 19:40:24,200 [INFO] PREDICT grid=FM44 time=2026-08-27T13:28:00+00:00 prob=0.342 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:24,228 [INFO] PREDICT grid=FM44 time=2026-08-27T13:28:00+00:00 prob=0.342 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:30,036 [INFO] PREDICT grid=EM70hr time=2026-08-27T13:28:00+00:00 prob=0.376 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:30,040 [INFO] Cache hit: EM70hr|2026-08-27 13:25:00+00:00
+2026-08-27 19:40:35,906 [INFO] PREDICT grid=FN10 time=2026-08-27T13:28:00+00:00 prob=0.409 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:35,912 [INFO] Cache hit: FN10|2026-08-27 13:25:00+00:00
+2026-08-27 19:40:37,294 [INFO] PREDICT grid=FM29fc time=2026-08-27T13:28:00+00:00 prob=0.413 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:37,297 [INFO] PREDICT grid=FM29fc time=2026-08-27T13:28:00+00:00 prob=0.413 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:38,656 [INFO] PREDICT grid=FM18fg time=2026-08-27T13:28:00+00:00 prob=0.371 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:40:38,682 [INFO] PREDICT grid=FM18fg time=2026-08-27T13:28:00+00:00 prob=0.371 risk=medium next_outage=None  kp=1.0  sfi=131
+2026-08-27 19:43:40,979 [INFO] Live solar: kp=1.0  kp_trend=+0.0  storm=0  sfi=131  xray_class=1
+2026-08-27 19:43:41,062 [INFO] SWPC alerts fetched: 84 entries
