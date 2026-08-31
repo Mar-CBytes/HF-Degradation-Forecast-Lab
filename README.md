@@ -1,4 +1,5 @@
 # FadeWatch
+AI Builders Challenge with IBM Bob - August Challenge Advance Space Exploration with AI
 
 A complete end-to-end machine learning system that predicts HF radio signal fadeouts and outages at any location on Earth, using WSPR (Weak Signal Propagation Reporter) spot data from 2024–2026.
 
